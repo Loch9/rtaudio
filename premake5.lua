@@ -28,6 +28,11 @@ project "rtaudio"
 		"include/soundcard.h",
 	}
 
+	defines
+	{
+		"_CRT_SECURE_NO_WARNINGS"
+	}
+
 	filter "system:windows"
 		systemversion "latest"
 		cppdialect "C++17"
