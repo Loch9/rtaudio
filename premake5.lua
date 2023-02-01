@@ -1,6 +1,7 @@
 project "rtaudio"
 	kind "StaticLib"
 	language "C++"
+	staticruntime "on"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -36,13 +37,11 @@ project "rtaudio"
 	filter "system:windows"
 		systemversion "latest"
 		cppdialect "C++17"
-		staticruntime "on"
 
 	filter "system:linux"
 		pic "on"
 		systemversion "latest"
 		cppdialect "C++17"
-		staticruntime "on"
 
 	filter "configurations:Debug"
 		runtime "Debug"
@@ -51,3 +50,8 @@ project "rtaudio"
 	filter "configurations:Release"
 		runtime "Release"
 		optimize "on"
+
+	filter "configurations:Dist"
+		runtime "Release"
+		optimize "on"
+        	symbols "off"
