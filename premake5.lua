@@ -34,9 +34,26 @@ project "rtaudio"
 		"_CRT_SECURE_NO_WARNINGS"
 	}
 
+	includedirs
+	{
+		"include/"
+	}
+
 	filter "system:windows"
 		systemversion "latest"
 		cppdialect "C++17"
+
+		defines
+		{
+			"__WINDOWS_DS__",
+			"__WINDOWS_ASIO__",
+			"__WINDOWS_WASAPI__"
+		}
+
+		links
+		{
+			"dsound.lib"
+		}
 
 	filter "system:linux"
 		pic "on"
